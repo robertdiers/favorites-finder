@@ -1,0 +1,41 @@
+<html>
+<head>
+<style type="text/css">
+a { text-decoration:none }
+</style> 
+<title>Links</title>
+<script language="JavaScript">
+
+	function update(){
+		var search = document.getElementById('crit').value;
+		document.getElementById('values').innerHTML = '';
+		for(i = 0; i < myLinks.length; i++) {
+			var temp = myLinks[i];
+			if (temp.toLowerCase().indexOf(search.toLowerCase()) != -1)
+			{
+				document.getElementById('values').innerHTML = document.getElementById('values').innerHTML + '<br>' + temp;
+			}
+		}
+		document.getElementById('crit').focus();
+	}
+
+	var myLinks=[
+	'<a target="_blank" href="http://dict.leo.org/ende?lang=de&lp=ende&search=">Leo Woerterbuch</a>',
+	'<a target="_blank" href="https://www.deepl.com/translator">DeepL Translator</a>',
+	'<a target="_blank" href="http://translate.google.de/#">Google Translator</a>'	
+	];
+
+</script>
+</head>
+<body onload="update();">
+	<div align="center">
+		<br>
+		<INPUT NAME="crit" id="crit" SIZE=40 onkeypress="{if (event.keyCode==13)update();}">
+		<br><br><hr>
+		<font size="3" face="Arial">
+			<div align="center" id="values">
+			</div>
+		</font>
+	</div>
+</body>
+</html>
